@@ -1,0 +1,18 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: nginx
+spec:
+  steps:
+    - name: web-nginx
+      image: nginx:stable-alpine-perl
+
+---
+
+apiVersion: tekton.dev/v1beta1
+kind: TaskRun
+metadata:
+  name: web-nginx
+spec:
+  taskRef:
+    name: nginx
